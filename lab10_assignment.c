@@ -16,7 +16,7 @@ struct Trie *createTrie()
     struct Trie* myTree = malloc(sizeof(struct Trie));
     myTree->count = 0;
 
-    // Set each pointer to NULLL.
+    // Set each pointer to NULL.
     int i;
     for (i=0; i<26; i++)
         myTree->children[i] = NULL;
@@ -105,6 +105,7 @@ int readDictionary(char *filename, char **pInWords)
 		pInWords[i] = strdup(word); // Copy the word into the array
 	}
 
+    printf("\n\n");
     fclose(file);
     return numWords;
 }
@@ -118,9 +119,7 @@ int main(void)
 	for (int i=0;i<numWords;++i)
 	{
 		printf("%s\n",inWords[i]);
-	}
-	printf("Num of words is %d\n", numWords);
-	
+	}	
 	struct Trie *pTrie = createTrie();
 	for (int i=0;i<numWords;i++)
 	{
